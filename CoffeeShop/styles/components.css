@@ -1,0 +1,193 @@
+/* --- Reusable Components --- */
+
+/* Content with Image (Used in story.html, potentially elsewhere) */
+.content-with-image { /* Renamed from .story-content for broader use */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30px;
+}
+
+.content-image { /* Renamed from .story-image */
+    flex: 1 1 40%;
+    max-width: 500px;
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    border-radius: var(--border-radius); /* Ensure border-radius is applied here too */
+}
+.content-image img {
+    transition: transform 0.5s ease;
+    /* border-radius inherited or set by global img if not overridden */
+}
+.content-image:hover img {
+    transform: scale(1.05);
+}
+
+.content-text { /* Renamed from .story-text */
+    flex: 1 1 55%;
+}
+.content-text em { /* Specific to how 'em' is used in this component */
+    font-size: 0.9em;
+    color: #777;
+    display: block;
+    margin-top: 10px;
+}
+/* If .story-section or .story-content had specific margin/padding, that goes in story.css */
+
+
+/* Menu Grid & Menu Item (Used in index.html highlights & menu.html) */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px; /* Or can be specific to the section using it */
+}
+
+.menu-item {
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    overflow: hidden;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+}
+
+.menu-item-image-wrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+.menu-item-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+     /* border-radius should not be needed here if parent .menu-item handles overflow with its own radius */
+}
+.menu-item:hover .menu-item-image-wrapper img {
+    transform: scale(1.1);
+}
+
+.menu-item-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.menu-item-content .cta-button {
+    margin-top: auto; /* Pushes button to the bottom */
+}
+
+.menu-item h3 {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+.menu-item p {
+    font-size: 0.9rem;
+    margin-bottom: 0.8em;
+}
+.menu-item p em {
+    font-size: 0.85em;
+    color: #777;
+    display: block;
+    margin-top: 8px;
+}
+
+/* --- Responsive Design for Components --- */
+@media (max-width: 991.98px) {
+    .content-image {
+        flex-basis: 100%; 
+        margin-bottom: 25px;
+        max-width: 450px; 
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .content-text {
+        flex-basis: 100%;
+        text-align: center; 
+    }
+    .content-with-image { /* This selector was .story-content, .content-with-image */
+        flex-direction: column;
+    }
+    /* Handle reversed order for .content-with-image if it's a common pattern */
+    .content-with-image.reversed-on-mobile { /* Add this class in HTML if needed */
+        flex-direction: column-reverse;
+    }
+    .content-with-image.reversed-on-mobile .content-image {
+        margin-bottom: 0;
+        margin-top: 25px;
+    }
+     /* Original CSS had specific style for inline flex-direction: row-reverse */
+    .content-with-image[style*="flex-direction: row-reverse;"] {
+        flex-direction: column; /* Default stacking for row-reverse on tablet */
+    }
+     .content-with-image[style*="flex-direction: row-reverse;"] .content-text {
+        order: 1; /* Text first */
+    }
+    .content-with-image[style*="flex-direction: row-reverse;"] .content-image {
+        order: 2; /* Image second */
+        margin-top: 25px; /* Add margin since it comes after */
+        margin-bottom: 0;
+    }
+
+
+    .menu-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+}
+
+@media (max-width: 767.98px) {
+    .content-with-image,
+    .content-with-image[style*="flex-direction: row-reverse;"] { /* Ensure consistent stacking */
+        flex-direction: column;
+        gap: 20px;
+    }
+    .content-image,
+    .content-with-image[style*="flex-direction: row-reverse;"] .content-image {
+        max-width: 100%;
+        margin-bottom: 20px;
+        margin-top: 0; /* Reset margin top */
+        order: 0; /* Reset order */
+    }
+    .content-text,
+    .content-with-image[style*="flex-direction: row-reverse;"] .content-text {
+        text-align: left; /* Revert to left align if centered on tablet */
+        order: 0; /* Reset order */
+    }
+    /* Special case for row-reverse to maintain visual order (image then text) when stacked */
+    .content-with-image[style*="flex-direction: row-reverse;"] .content-text {
+        /* If you want text first when stacked from row-reverse: */
+        /* order: 1; */
+    }
+    .content-with-image[style*="flex-direction: row-reverse;"] .content-image {
+        /* If you want image second when stacked from row-reverse: */
+        /* order: 2; margin-top: 20px; */
+        /* Or, if you want image first (natural column order): */
+         margin-bottom: 20px; /* Standard margin */
+    }
+
+
+    .menu-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 479.98px) {
+    .menu-grid {
+        grid-template-columns: 1fr; /* Stack to single column */
+        gap: 20px;
+    }
+    .menu-item-image-wrapper {
+        height: 180px;
+    }
+}

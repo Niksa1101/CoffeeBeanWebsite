@@ -1,0 +1,101 @@
+/* --- Hero Section (index.html) --- */
+.hero-section {
+    background: url("Backgroundimage.webp") no-repeat center center/cover;
+    color: var(--light-text-color);
+    height: 100vh;
+    min-height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding-top: 80px; /* Account for fixed header, adjust if header height changes */
+}
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+}
+
+.hero-content h1 {
+    color: var(--light-text-color); /* Ensure override if base h1 color is different */
+    font-size: clamp(2.3rem, 6vw, 3.5rem);
+    margin-bottom: 0.5em;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+    animation: fadeInDown 1s ease-out; /* Keyframes in common.css */
+}
+
+.hero-content .subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    margin-bottom: 1.8em;
+    font-weight: 300;
+    animation: fadeInUp 1s ease-out 0.3s; /* Keyframes in common.css */
+    animation-fill-mode: backwards;
+}
+.hero-content .cta-button {
+    animation: fadeInUp 1s ease-out 0.6s; /* Keyframes in common.css */
+    animation-fill-mode: backwards;
+}
+
+/* Welcome Section Specifics (index.html) */
+/* .welcome-section { ... if any overall section styling needed ... } */
+
+.welcome-section-image { /* Fix for the image from Task 1 */
+    width: 100%;
+    max-width: 700px;
+    margin: 30px auto;
+    border-radius: var(--border-radius);
+    display: block; 
+    height: auto; 
+}
+
+.menu-item-image-wrapper{
+    height: 350px;
+    object-fit: fill;
+}
+
+.cta-button{
+    display: block;
+    margin: auto;
+}
+/* Highlights Section Specifics (index.html) */
+/* .highlights-section { ... if any overall section styling needed ... } */
+/* .menu-grid and .menu-item styles are in components.css */
+
+
+/* Responsive Design for Index Page Specifics */
+@media (max-width: 767.98px) {
+    .hero-section {
+        min-height: 480px;
+        padding-top: 70px; /* Adjust based on header height in mobile */
+    }
+    .hero-content h1 {
+        font-size: clamp(2rem, 7vw, 2.8rem);
+    }
+    .hero-content .subtitle {
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+        margin-bottom: 1.5em;
+    }
+}
+
+@media (max-width: 479.98px) {
+    .hero-section {
+        min-height: 400px;
+    }
+     .hero-content h1 {
+        font-size: clamp(1.8rem, 8vw, 2.4rem);
+    }
+    .hero-content .subtitle {
+        font-size: clamp(0.85rem, 4vw, 1rem);
+    }
+}
