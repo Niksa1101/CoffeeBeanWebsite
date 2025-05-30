@@ -1,26 +1,17 @@
-/* Styles specific to story.html */
 
-.story-section {
-    /* Example: specific padding or background for just the story section container */
-}
 
-/* .content-with-image styles are in components.css */
-/* Adjustments for specific instances on the story page, if any */
 .story-section .content-with-image .content-text h2.section-title {
-    text-align: left; /* Override default center align for this instance */
+    text-align: left; 
     margin-bottom: 0.5em;
 }
 .story-section .content-with-image .content-text h2.section-title::after {
-    display: none; /* Remove underline for this specific title if desired */
+    display: none; 
 }
 
-.story-section .content-with-image .content-text h3 { /* If h3 styling here is unique */
+.story-section .content-with-image .content-text h3 { 
     font-family: var(--heading-font);
     color: var(--primary-color);
     font-size: 1.8rem;
     margin-bottom: 0.5em;
 }
 
-
-/* Responsive Design for Story Page Specifics */
-/* @media (max-width: ...) { ... } */
