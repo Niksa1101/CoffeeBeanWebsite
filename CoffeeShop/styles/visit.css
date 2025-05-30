@@ -1,6 +1,5 @@
-/* Styles specific to visit.html */
 
-.visit-section .visit-content { /* Renamed from .visit-content for clarity */
+.visit-section .visit-content { 
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
@@ -9,13 +8,13 @@
 .visit-section .visit-details {
     flex: 1 1 300px;
 }
-.visit-section .visit-details h2, /* Using h2 for main title in this block */
+.visit-section .visit-details h2, 
 .visit-section .visit-details h3 {
-    color: var(--primary-color); /* Already default, but can be specific */
+    color: var(--primary-color); 
 }
-/* If this h2 should not have the ::after from .section-title */
+
 .visit-section .visit-details h2.section-title::after,
-.visit-section .visit-details h2::after { /* If h2 is not .section-title */
+.visit-section .visit-details h2::after { 
     display: none;
 }
 
@@ -34,7 +33,7 @@
     box-shadow: var(--box-shadow);
     width: 100%;
     height: 100%;
-    border:0; /* Good to keep for iframe reset */
+    border:0; 
 }
 
 /* Responsive Design for Visit Page Specifics */
