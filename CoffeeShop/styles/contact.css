@@ -1,4 +1,3 @@
-/* Styles specific to contact.html */
 
 .contact-page-section .contact-content-grid {
     display: flex;
@@ -7,15 +6,14 @@
 }
 
 .contact-page-section .contact-details {
-    flex: 1 1 300px; /* Similar to visit-details, could be a component */
+    flex: 1 1 300px; 
 }
-.contact-page-section .contact-details h2, /* Using h2 for main title */
+.contact-page-section .contact-details h2, 
 .contact-page-section .contact-details h3 {
     color: var(--primary-color);
 }
-/* If this h2 should not have the ::after from .section-title */
 .contact-page-section .contact-details h2.section-title::after,
-.contact-page-section .contact-details h2::after { /* If h2 is not .section-title */
+.contact-page-section .contact-details h2::after { 
      display: none;
 }
 
@@ -24,23 +22,18 @@
     margin-bottom: 0.8em;
     font-size: 0.95rem;
 }
-/* Specific styling for social links in contact details if different from footer */
-.contact-page-section .contact-details .footer-social a {
-    /* color: var(--secondary-color); */ /* Example override */
-}
-
 
 .contact-form {
     flex: 1 1 400px;
-    background-color: #fff; /* Or var(--light-bg) if preferred */
+    background-color: #fff; 
     padding: 25px;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
 }
-.contact-form h2 { /* Form title */
+.contact-form h2 { 
      text-align: left;
 }
-.contact-form h2::after { /* Remove underline for form title */
+.contact-form h2::after { 
     display: none;
 }
 
@@ -56,7 +49,7 @@
 }
 .contact-form input[type="text"],
 .contact-form input[type="email"],
-.contact-form input[type="subject"], /* Added subject to the list */
+.contact-form input[type="subject"], 
 .contact-form textarea {
     width: 100%;
     padding: 10px;
@@ -97,6 +90,6 @@
 }
 @media (max-width: 479.98px) {
     .contact-form .cta-button {
-        width: 100%; /* Make submit button full width on very small screens */
+        width: 100%; 
     }
 }
